@@ -1,0 +1,62 @@
+// CalculoparaNotas.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+
+using namespace std;
+
+void main()
+{
+	int registro,faltas,cont=0;
+	float p1,p2,np,ef,nf,Promedio=0;
+	cout<<"Ingresar el Registro: ";
+	cin>>registro;
+	while(registro=-999)
+	{
+		do
+		{
+			cout<<"Ingresar el parcial 1: ";
+		    cin>>p1;
+		}
+		while((p1<0) || (p1>100));
+		do
+		{
+			cout<<"Ingresar el parcial 2: ";
+		cin>>p2;
+		}
+		while((p2<0) || (p2>100));
+		do
+		{
+			cout<<"Ingresar la nota practica: ";
+		cin>>np;
+		}
+		while((np<0) || (np>100));
+		do
+		{
+			cout<<"Ingresar el examen final: ";
+		cin>>ef;
+		}
+		while((ef<0) || (ef>100));
+		do
+		{
+			cout<<"Ingresar las faltas:";
+		cin>>faltas;
+		}
+		while((faltas<0) || (faltas>100));
+		if(faltas>10)
+			ef=0;
+		nf=(((p1+p2)/2)*0.4)+(np*0.2)+(ef*0.4);
+		if(nf>=51)
+			cout<<"Aprobado";
+		else
+	        cout<<"Reprobado";
+		cout<<"Ingresar Registro: ";
+		cin>>registro;
+		Promedio=Promedio+nf;
+		cont++;
+	}
+	cout<<"El Promedio: " <<Promedio/cont;
+	getch();
+}
