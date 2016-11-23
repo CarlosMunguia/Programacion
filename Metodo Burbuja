@@ -1,0 +1,59 @@
+// Metodo Burbujas.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#define MAX 100
+
+using namespace std;
+void Cargarvector (float a[],int tam);
+void Mostrarvector (float a[],int tam);
+void Burbuja (float a[],int tam);
+
+void main()
+{
+	 int n;
+	 float a[MAX];
+	 do{
+		 cout<<"Ingresar cantidad de vectores: ";
+		 cin>> n;
+	 }while(!((n>=0)&&(n<MAX)));
+	 {
+		 Cargarvector (a,n);
+		 Burbuja (a,n);
+		 Mostrarvector (a,n);
+	 }
+	 getch();
+}
+void Cargarvector (float a[],int tam)
+{
+	for(int i=0;i<tam;i++)
+	{
+		cout<<"a["<<i<<"]= ";
+		cin>> a[i];
+	}
+}
+void Mostrarvector (float a[],int tam)
+{
+	for(int i=0;i<tam;i++)
+	{
+		cout<<"a["<<i<<"]= "<<a[i]<<endl;
+	}
+}
+void Burbuja (float a[],int tam)
+{
+	float aux;
+	for(int i=0;i<(tam-1);i++)
+	{
+		for(int j=i+1;j<tam;j++)
+		{
+			if (a[i]<a[j])
+			{
+				aux=a[i];
+				a[i]=a[j];
+				a[j]=aux;
+			}
+		}
+	}
+}
